@@ -325,7 +325,8 @@ class MainWindow(QWidget):
             # пробуем удалить предыдущую копию этого окна
             self.statistic_window.destroy()
         except AttributeError:
-            print('Окно статистики создано!')
+            # print('Окно статистики создано!')
+            pass
         arr = SWorker.get_statistic(self.LOGIN, self.PASSWORD)
         # ↑ добываем статистику
         self.statistic_window = StatisticWindow(arr[0], score, arr[1], arr[2],
@@ -342,7 +343,8 @@ class MainWindow(QWidget):
             # пробуем удалить предыдущую копию этого окна
             self.settings_window.destroy()
         except AttributeError:
-            print('Окно настроек создано!')
+            # print('Окно настроек создано!')
+            pass
         self.settings_window = SettingsWindow(self.all_open_windows)
         self.settings_window.show()
         self.all_open_windows.append(self.settings_window)
@@ -354,9 +356,11 @@ class MainWindow(QWidget):
             # пробуем удалить предыдущую копию этого окна
             self.hof_window.destroy()
         except AttributeError:
-            print('Окно зала славы создано!')
+            # print('Окно зала славы создано!')
+            pass
         except ValueError:
-            print('Окно зала славы создано!')
+            # print('Окно зала славы создано!')
+            pass
         accounts = AccWorker.get_all()  # список списков паролей и аккаунтов :)
         best_dict = dict()  # словарь для логинов + лучших счетов
         medium_dict = dict()  # словарь для логинов + лучших средних счетов
@@ -471,7 +475,7 @@ class SettingsWindow(QWidget):
             # меняем тему в файле на выбранную)))))
             if theme == 'l':  # светлая
                 for window in self.windows:
-                    print('Меняю тему', window, 'на', theme)
+                    # print('Меняю тему', window, 'на', theme)
                     if (isinstance(window, StatisticWindow)
                             or isinstance(window, HallOfFrameWindow)):
                         for widget in window.all_widgets:
@@ -484,7 +488,7 @@ class SettingsWindow(QWidget):
                 self.setStyleSheet(light_main_window_stylesheet)
             elif theme == 'd':  # тёмная
                 for window in self.windows:
-                    print('Меняю тему', window, 'на', theme)
+                    # print('Меняю тему', window, 'на', theme)
                     if (isinstance(window, StatisticWindow)
                             or isinstance(window, HallOfFrameWindow)):
                         for widget in window.all_widgets:
