@@ -290,8 +290,8 @@ class MainWindow(QWidget):
             self.string_label.hide()  # прячем текст-виджет
             self.step2 = self.last_step2  # взводим таймер
             score = str(self.sym_count / self.step2)  # вычисляыем счёт
-            if len(score) > 12:
-                score = score[:12]
+            if len(score) > 5:
+                score = score[:5]
             score = float(score)
             # ↑ обрезаем до 10 знаков после запятой
             arr = SWorker.get_statistic(self.LOGIN, self.PASSWORD)
@@ -308,8 +308,8 @@ class MainWindow(QWidget):
             medium_score = str((self.sym_count + total_sym_count)
                                / (total_time + self.step2))
             # ↓ обрезаем до 10 знаков после запятой
-            if len(medium_score) > 12:
-                medium_score = medium_score[:12]
+            if len(medium_score) > 5:
+                medium_score = medium_score[:5]
             medium_score = float(medium_score)
             # ↓ обновляем статистику
             SWorker.change_statistic(self.LOGIN, self.PASSWORD,
