@@ -9,15 +9,15 @@ from stylesheets import *
 
 # из файла functions достаём все классы
 # генератор частей предложений
-SGenerator = StringGenerator('text.txt')
+SGenerator = StringGenerator('other_files/text.txt')
 # класс работы с акаунтами (CSV)
-AccWorker = AccountWorker('accounts.csv')
+AccWorker = AccountWorker('data_files/accounts.csv')
 # класс для работы с темами (txt)
-TWorker = FileWorker('current-theme.txt')
+TWorker = FileWorker('data_files/current-theme.txt')
 # класс для работы с аккаунтом (txt)
-AWorker = FileWorker('current-account.txt')
+AWorker = FileWorker('data_files/current-account.txt')
 # класс для работы со статистиками (SQL)
-SWorker = StatisticWorker("acc-statistics.db")
+SWorker = StatisticWorker("data_files/acc-statistics.db")
 
 
 class MainWindow(QWidget):
@@ -137,7 +137,7 @@ class MainWindow(QWidget):
         self.hof_button.setFont(QtGui.QFont('comic sans ms', 30))
         self.hof_button.clicked.connect(self.show_hall_of_frame)
         # картинка компа
-        self.computer_pixmap = QPixmap('computer.png')
+        self.computer_pixmap = QPixmap('other_files/computer.png')
         self.computer_image = QLabel(self)
         self.computer_image.setGeometry(50, 80, 300, 200)
         self.computer_image.setPixmap(self.computer_pixmap)
